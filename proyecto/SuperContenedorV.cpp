@@ -357,7 +357,17 @@ float SuperContenedorV::valorDeLasVentas(){
 
 //devuelve la ganancia total del supermercado por las ventas realizadas.
 
+void SuperContenedorV::ganaciaDelSuperMercadoPorVentas(){
+	int ganancias = 0;
 
+	for (int i = 0; i < Cantidad; i++)
+	{
+		ganancias = ganancias + (ArregloProductos[i].getCantidadVendida() * ArregloProductos[i].getPrecioTotal());
+
+	}
+	
+	cout<<"La ganancias son de:  "<< ganancias <<endl;
+}
 
 
 

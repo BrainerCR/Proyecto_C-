@@ -152,8 +152,8 @@ int main () {
 		break;
 	}
 	case 16:{
-		
-		
+		system("cls");
+		G.ganaciaDelSuperMercadoPorVentas();
 		system("pause");
 		break;
 	}
