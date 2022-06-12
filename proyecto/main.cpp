@@ -116,8 +116,8 @@ int main () {
 		break;
 	}
 	case 10:{
-		
-		
+		system("cls");
+		G.KgsPorProducto();
 		system("pause");
 		break;
 	}

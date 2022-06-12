@@ -217,6 +217,30 @@ void SuperContenedorV::KgsVendidosGeneral(){
 	cout<< "Se vendio: "<<totalKilos <<" kilos gramos de productos"<<endl;
 }
 
+//devuelve la cantidad de kilogramos
+//que corresponde con la cantidad vendida de un producto
+
+
+void SuperContenedorV::KgsPorProducto(){
+	int totalKilos = 0, codigo, peso = 0, cant = 0;
+	string nombre;
+
+	cout<<"Digite el codigo del producto a consultar: "<<endl;
+	cin>>codigo;
+
+	for (int i = 0; i < Cantidad; i++){
+
+		if(codigo == ArregloProductos[i].getCodigo()){
+			peso = ArregloProductos[i].getPesoUnidad();
+			cant = ArregloProductos[i].getCantidadVendida();
+			nombre = ArregloProductos[i].getNombre();
+			totalKilos = totalKilos+(peso*cant);
+		}
+			
+	}
+
+	cout<<"El producto: " << nombre <<" con el codigo: " << codigo << " ha vendido: " << totalKilos <<endl;
+}
 
 
 

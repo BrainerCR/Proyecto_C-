@@ -24,7 +24,7 @@ public:
 	void ProductoBajaExistencia();
 	string imprimirProductosBajosDeExistencia();
 	void KgsVendidosGeneral();
-	int KgsPorProducto();
+	void KgsPorProducto();
 	int UnidadesVendidas();
 	int CostoDeInventario();
 	int CostoDeVentas();
