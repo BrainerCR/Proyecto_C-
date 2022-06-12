@@ -25,13 +25,12 @@ public:
 	string imprimirProductosBajosDeExistencia();
 	void KgsVendidosGeneral();
 	void KgsPorProducto();
-	int UnidadesVendidas();
-	int CostoDeInventario();
-	int CostoDeVentas();
-	int ValorDeVentas();
-	int GananciasPorVentas();
-	float PromedioVentas();
-	void MuestraElementos();
+	string imprimProductosQueSonMasCostososQue();
+	int cuantasUnidadesSeHanVendidoDelProducto(); 
+	float costoDelInventario();
+	float costoDeLasVentas();
+	float valorDeLasVentas();
+	void ganaciaDelSuperMercadoPorVentas(); 
 
 	void DatosInicializados();
 	void IngresarDatos(Producto dato);

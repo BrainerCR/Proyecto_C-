@@ -122,32 +122,32 @@ int main () {
 		break;
 	}
 	case 11:{
-		
-		
+		system("cls");
+		G.imprimProductosQueSonMasCostososQue();
 		system("pause");
 		break;
 	}
 	case 12:{
-		
-		
+		system("cls");
+		cout<<"Se han vendido: "<<G.cuantasUnidadesSeHanVendidoDelProducto() <<" unidades" <<endl;
 		system("pause");
 		break;
 	}
 	case 13:{
-		
-		
+		system("cls");
+		cout<<"El ponderado del costo de inventario: " <<G.costoDelInventario()<<endl;
 		system("pause");
 		break;
 	}
 	case 14:{
-		
-		
+		system("cls");
+		cout<<"El ponderado del costo de las ventas: " <<G.costoDeLasVentas()<<endl;
 		system("pause");
 		break;
 	}
 	case 15:{
-		
-		
+		system("cls");
+		cout<<"El ponderado del costo de las ventas: " <<G.valorDeLasVentas()<<endl;
 		system("pause");
 		break;
 	}

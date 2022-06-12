@@ -242,6 +242,127 @@ void SuperContenedorV::KgsPorProducto(){
 	cout<<"El producto: " << nombre <<" con el codigo: " << codigo << " ha vendido: " << totalKilos <<endl;
 }
 
+//muestra un listado de los productos cuyo precio de venta es mayor que 
+//el de un producto en particular que se recibe como parámetro. Solamente se 
+//debe mostrar para cada producto: el código, el nombre y su precio de venta
+
+string SuperContenedorV::imprimProductosQueSonMasCostososQue(){
+	int codigo, precio;
+	stringstream aux;
+
+	cout<<"Digite el codigo del producto a consultar: "<<endl;
+	cin>>codigo;
+
+	for(int i=0; i<Cantidad; i++){
+		if(codigo == ArregloProductos[i].getCodigo()){
+			
+			precio = ArregloProductos[i].getPrecioTotal();
+
+			for(int j=0; j<Cantidad; j++){
+				if(precio < ArregloProductos[j].getPrecioTotal()){
+					
+					aux<<"-----------------------------------------------"<<endl;
+					aux<<"Producto: " <<j+1 <<endl;
+					aux<<"Codigo: " << ArregloProductos[j].getCodigo() <<endl;
+					aux<<"Nombre: " << ArregloProductos[j].getNombre() <<endl;
+					aux<<"Precio de venta: " << ArregloProductos[j].getPrecioTotal() <<endl;	
+					aux<<"-----------------------------------------------"<<endl;
+				}
+			}
+
+		} else {
+			cout<<"No existe ese codigo "<<endl;
+		}
+	}
+
+
+	return aux.str();
+}
+
+//devuelve la cantidad de unidades vendidas de un producto particular
+
+int SuperContenedorV::cuantasUnidadesSeHanVendidoDelProducto(){
+	int codigo, ventas;
+
+	cout<<"Digite el codigo del producto a consultar: "<<endl;
+	cin>>codigo;
+
+	for (int i = 0; i < Cantidad; i++){
+
+		if(codigo == ArregloProductos[i].getCodigo()){
+			ventas = ArregloProductos[i].getCantidadVendida();
+		}	
+	}
+
+	return ventas;
+}
+
+//devuelve el costo total de los productos en existencia en
+//el supermercado, es decir, la suma de los precios de costo ponderados por 
+//la cantidad en existencia de cada producto
+
+float SuperContenedorV::costoDelInventario(){
+	float promedio = 0.0;
+	int suma = 0;
+
+	for (int i = 0; i < Cantidad; i++)
+	{
+		promedio =+ (ArregloProductos[i].getExistencia() * ArregloProductos[i].getPrecioBase());
+		suma += ArregloProductos[i].getExistencia();
+
+	}
+
+	promedio /= suma;
+	
+	return promedio;
+}
+
+//devuelve el costo total de los productos que se ha vendido, es decir, la suma 
+//de los precios de costo ponderados por la cantidad vendida de cada producto.
+
+float SuperContenedorV::costoDeLasVentas(){
+	float promedio = 0.0;
+	int suma = 0;
+
+	for (int i = 0; i < Cantidad; i++)
+	{
+		promedio =+ (ArregloProductos[i].getCantidadVendida() * ArregloProductos[i].getPrecioBase());
+		suma += ArregloProductos[i].getCantidadVendida();
+
+	}
+
+	promedio /= suma;
+
+	return promedio;
+}
+
+//devuelve el valor total de las ventas del supermercado, es decir, la suma 
+//de los precios de venta ponderados por la cantidad vendida de cada producto
+
+float SuperContenedorV::valorDeLasVentas(){
+	float promedio = 0.0;
+	int suma = 0;
+
+	for (int i = 0; i < Cantidad; i++)
+	{
+		promedio =+ (ArregloProductos[i].getPrecioTotal() * ArregloProductos[i].getCantidadVendida());
+		suma += ArregloProductos[i].getCantidadVendida();
+
+	}
+
+	promedio /= suma;
+
+	return promedio;
+}
+
+//devuelve la ganancia total del supermercado por las ventas realizadas.
+
+
+
+
+
+
+
 
 
 
