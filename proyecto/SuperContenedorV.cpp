@@ -201,7 +201,21 @@ string SuperContenedorV::imprimirProductosBajosDeExistencia(){
 // devuelve la suma de kilogramos
 //que corresponde a las cantidades vendidas de todos los productos
 
-void 
+void SuperContenedorV::KgsVendidosGeneral(){
+	int totalKilos = 0;
+	int cant = 0;
+	int peso = 0;
+
+	for (int i = 0; i < Cantidad; i++){
+
+		peso = ArregloProductos[i].getPesoUnidad();
+		cant = ArregloProductos[i].getCantidadVendida();
+
+		totalKilos = totalKilos+(peso*cant);
+	}
+
+	cout<< "Se vendio: "<<totalKilos <<" kilos gramos de productos"<<endl;
+}
 
 
 
