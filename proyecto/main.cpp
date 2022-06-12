@@ -13,10 +13,8 @@ int main () {
 	Producto ArregloProductos[200] = Producto();
 	
 	/*
-	Producto Arroz(1,"Arroz",2000,0.10,1,10,2,5,1000);
-	Producto Frijoles(2,"Frijoles",1000,0.10,1,10,1,5);
-	Producto Leche(3,"Leche",900,0.10,1,10,1,5);
-	Producto Atun(4,"Atun",1850,0.10,1,10,0.3,5);
+	
+	
 	Producto Sardina(5,"Sardina",1000,0.10,1,10,0.2,5);
 	Producto Mantequilla(6,"Mantequilla",500,0.15,0,10,0.3,4);
 	Producto JabonBanno(7,"Jabon de banno",500,0.15,0,10,0.3,4);
@@ -158,8 +156,8 @@ int main () {
 		break;
 	}
 	case 17:{
-		
-		
+		system("cls");
+		G.graficoDeVentasDeLos15ProductsMasVendidos();
 		system("pause");
 		break;
 	}

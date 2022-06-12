@@ -9,6 +9,9 @@ SuperContenedorV::~SuperContenedorV() {
 //Destructor
 }
 
+//Ingresa un nuevo producto al surtido del supermercado
+//# 1
+
 void SuperContenedorV::IngresarProducto(){
 	
 	int Codigo, PrecioBase, CantidadVendida, Existencia, ExistenciaMinima, PrecioTotalTotal;
@@ -46,6 +49,9 @@ void SuperContenedorV::IngresarProducto(){
 	}
 }
 
+//muestra los siguientes datos de todos los productos del supermercado: 
+//código, nombre, porcentaje de ganancia y precio de venta
+//#6
 
 string SuperContenedorV::toString(){
 
@@ -63,6 +69,8 @@ string SuperContenedorV::toString(){
 	return aux.str();
 }
 
+//Elimina un producto del surtido del supermercado por su código
+//#2
 void SuperContenedorV::EliminarProducto(){
 
 	int codigo;
@@ -81,18 +89,34 @@ void SuperContenedorV::EliminarProducto(){
 
 }
 
+
+//Inicializamos los datos
+
 void SuperContenedorV::DatosInicializados(){
 
 	// Se crea los objetos
-	Producto arroz = Producto (3,"Arroz",2000,0.10,1,2,2,5,2200);
-	Producto Frijoles = Producto(1,"Frijoles",1000,0.10,1,10,1,5,1000);
+	Producto arroz = Producto(3,"Arroz",2000,0.10,6,2,2,5,2200);
+	Producto Frijoles = Producto(1,"Frijoles",1000,0.10,6,10,1,5,1000);
+	Producto Leche = Producto(3,"Leche",900,0.10,7,10,1,5,2000);
+	Producto Atun = Producto(4,"Atun",1850,0.10,8,10,0.3,5,600);
+	Producto Sardina = Producto(5,"Sardina",1000,0.10,3,10,0.2,5,700);
+	Producto Mantequilla = Producto(6,"Mantequilla",500,0.15,0,10,0.3,4,700);
+	Producto JabonBanno = Producto(7,"Jabon de banno",500,0.15,0,10,0.3,4,700);
 
 
 	if(Cantidad < Tamanio){
 		ArregloProductos[Cantidad++] = arroz;
 		ArregloProductos[Cantidad++] = Frijoles;
+		ArregloProductos[Cantidad++] = Leche;
+		ArregloProductos[Cantidad++] = Atun;
+		ArregloProductos[Cantidad++] = Sardina;
+		ArregloProductos[Cantidad++] = Mantequilla;
+		ArregloProductos[Cantidad++] = JabonBanno;
 	}	
 }
+
+//devuelve el producto de mayor precio de venta
+//# 3
 
 void SuperContenedorV::ProductoMayorValor(){
 	int mayor=0;
@@ -110,6 +134,10 @@ void SuperContenedorV::ProductoMayorValor(){
 	cout<<"Con el valor total de: "<< mayor <<endl;
 }
 
+
+//devuelve el producto que tiene mayor existencia
+//#4
+
 void SuperContenedorV::ProductoMayorExistencia(){
 	int mayor=0;
 	string nombre;
@@ -125,6 +153,9 @@ void SuperContenedorV::ProductoMayorExistencia(){
 	cout<<"El producto: "<< nombre <<endl;
 	cout<<"Con el valor total de: "<< mayor <<endl;
 }
+
+//ordena los productos ascendentemente de acuerdo con el código
+//#5
 
 void SuperContenedorV::OrdenarProductoPorCodigo(){
 	Producto aux = Producto(0,"",0,0.0,0,0,0,0,0);
@@ -162,7 +193,7 @@ void SuperContenedorV::OrdenarProductoPorCodigo(){
 
 //Devuelve la cantidad de productos
 //que tienen una existencia por debajo de su existencia mínima.
-
+//#7
 
 void SuperContenedorV::ProductoBajaExistencia(){
 	int prodCant = 0;
@@ -180,6 +211,7 @@ void SuperContenedorV::ProductoBajaExistencia(){
 //muestra la lista de los productos
 //que tienen una existencia por debajo de su existencia mínima. Se debe mostrar solamente: el
 //código, el nombre, la existencia y la existencia mínima.
+//#8
 
 string SuperContenedorV::imprimirProductosBajosDeExistencia(){
 	stringstream aux;
@@ -200,6 +232,7 @@ string SuperContenedorV::imprimirProductosBajosDeExistencia(){
 
 // devuelve la suma de kilogramos
 //que corresponde a las cantidades vendidas de todos los productos
+//#9
 
 void SuperContenedorV::KgsVendidosGeneral(){
 	int totalKilos = 0;
@@ -219,7 +252,7 @@ void SuperContenedorV::KgsVendidosGeneral(){
 
 //devuelve la cantidad de kilogramos
 //que corresponde con la cantidad vendida de un producto
-
+//#10
 
 void SuperContenedorV::KgsPorProducto(){
 	int totalKilos = 0, codigo, peso = 0, cant = 0;
@@ -245,6 +278,7 @@ void SuperContenedorV::KgsPorProducto(){
 //muestra un listado de los productos cuyo precio de venta es mayor que 
 //el de un producto en particular que se recibe como parámetro. Solamente se 
 //debe mostrar para cada producto: el código, el nombre y su precio de venta
+//#11
 
 string SuperContenedorV::imprimProductosQueSonMasCostososQue(){
 	int codigo, precio;
@@ -280,6 +314,7 @@ string SuperContenedorV::imprimProductosQueSonMasCostososQue(){
 }
 
 //devuelve la cantidad de unidades vendidas de un producto particular
+//#12
 
 int SuperContenedorV::cuantasUnidadesSeHanVendidoDelProducto(){
 	int codigo, ventas;
@@ -300,6 +335,7 @@ int SuperContenedorV::cuantasUnidadesSeHanVendidoDelProducto(){
 //devuelve el costo total de los productos en existencia en
 //el supermercado, es decir, la suma de los precios de costo ponderados por 
 //la cantidad en existencia de cada producto
+//#13
 
 float SuperContenedorV::costoDelInventario(){
 	float promedio = 0.0;
@@ -319,6 +355,7 @@ float SuperContenedorV::costoDelInventario(){
 
 //devuelve el costo total de los productos que se ha vendido, es decir, la suma 
 //de los precios de costo ponderados por la cantidad vendida de cada producto.
+//#14
 
 float SuperContenedorV::costoDeLasVentas(){
 	float promedio = 0.0;
@@ -338,6 +375,7 @@ float SuperContenedorV::costoDeLasVentas(){
 
 //devuelve el valor total de las ventas del supermercado, es decir, la suma 
 //de los precios de venta ponderados por la cantidad vendida de cada producto
+//#15
 
 float SuperContenedorV::valorDeLasVentas(){
 	float promedio = 0.0;
@@ -356,6 +394,7 @@ float SuperContenedorV::valorDeLasVentas(){
 }
 
 //devuelve la ganancia total del supermercado por las ventas realizadas.
+//#16
 
 void SuperContenedorV::ganaciaDelSuperMercadoPorVentas(){
 	int ganancias = 0;
@@ -369,20 +408,105 @@ void SuperContenedorV::ganaciaDelSuperMercadoPorVentas(){
 	cout<<"La ganancias son de:  "<< ganancias <<endl;
 }
 
+/*
+Muestra un gráfico de barras horizontales, dibujadas con asteriscos (*), que representan 
+la cantidad vendida de los 5 productos más vendidos en el supermercado. En las ordenadas (eje Y) 
+se mostrarán los nombres de los productos y en las abscisas (eje X) la representación 
+de la cantidad vendida del producto
+*/
+//#17
+
+void SuperContenedorV::graficoDeVentasDeLos15ProductsMasVendidos(){
+	string grafico[5][5];
+	int pro1 = 0, pro2 = 0, pro3 = 0, pro4 = 0, pro5 = 0, mayor = 1;
+
+	for (int i = 0; i < Cantidad; i++)
+	{
+		if(ArregloProductos[i].getCantidadVendida() >= (mayor-1)){
+			pro1 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= mayor){
+			pro2 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro2){
+			pro3 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro3){
+			pro4 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro4){
+			pro5 = ArregloProductos[i].getCantidadVendida();
+		}		
+
+		cout<<"productos:  "<< pro1<<pro2<<pro3<<pro4<<pro5 <<endl;
+	}
+
+	
+
+	/*do{
+		if(ArregloProductos[i].getCantidadVendida() >= mayor){
+			mayor = ArregloProductos[i].getCantidadVendida();			
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= mayor){
+			pro2 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro2){
+			pro3 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro3){
+			pro4 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro4){
+			pro5 = ArregloProductos[i].getCantidadVendida();
+		}
+
+
+		i ++;
+		cout<<"productos:  "<< mayor<<pro2<<pro3<<pro4<<pro5 <<endl;
+
+	} while (i <= Cantidad);
+	*/
+
+	/*
+	else if(ArregloProductos[i].getCantidadVendida() <= mayor){
+			pro2 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro2){
+			pro3 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro3){
+			pro4 = ArregloProductos[i].getCantidadVendida();
+
+		} else if(ArregloProductos[i].getCantidadVendida() <= pro4){
+			pro5 = ArregloProductos[i].getCantidadVendida();
+		}
 
 
 
+---------------------------------------
+
+if(ArregloProductos[i].getCantidadVendida() <= mayor){
+				pro2 = ArregloProductos[i].getCantidadVendida();
+
+				if(ArregloProductos[i].getCantidadVendida() <= pro2){
+					pro3 = ArregloProductos[i].getCantidadVendida();
+
+					if(ArregloProductos[i].getCantidadVendida() <= pro3){
+						pro4 = ArregloProductos[i].getCantidadVendida();
+
+						if(ArregloProductos[i].getCantidadVendida() <= pro4){
+							pro5 = ArregloProductos[i].getCantidadVendida();
+							
+						}
+					}
+				}
+			}
+	*/
+	
+}
+
+//#18
 
 
-
-
-
-
-
-
-
-
-
-
-
+//#19
 

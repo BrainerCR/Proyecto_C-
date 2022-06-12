@@ -31,7 +31,7 @@ public:
 	float costoDeLasVentas();
 	float valorDeLasVentas();
 	void ganaciaDelSuperMercadoPorVentas(); 
-
+	void graficoDeVentasDeLos15ProductsMasVendidos();
 	void DatosInicializados();
 	void IngresarDatos(Producto dato);
 	
